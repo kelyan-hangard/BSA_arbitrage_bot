@@ -2,7 +2,7 @@ use reqwest;
 use serde_json::Value;
 use std::error::Error;
 use chrono::{Duration, Utc};
-use crate::utils::symbol_split_at_3_okx;
+use crate::utils::split_symbol_okx;
 
 pub async fn get_okx_data(imported_symbol: &str, interval: &str, time_back: i64, limit: usize) -> Result<Value, Box<dyn Error>> {
     let start_time = (Utc::now() - Duration::days(time_back)).timestamp_millis();
@@ -14,7 +14,7 @@ pub async fn get_okx_data(imported_symbol: &str, interval: &str, time_back: i64,
         _ => interval,
     };
     let split_index = 3;
-    let symbol = symbol_split_at_3_okx(imported_symbol, split_index);
+    let symbol = split_symbol_okx(imported_symbol, split_index);
 
     let url = format!(
         "https://www.okx.com/api/v5/market/history-candles?instId={}&bar={}&after={}&limit={}",

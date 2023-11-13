@@ -7,7 +7,7 @@ mod utils;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let symbol = "LDOUSDT";
-    let interval = "5M"; // You can use different intervals like "1h", "1d", etc.
+    let interval = "5m"; // You can use different intervals like "1h", "1d", etc.
     let time_back = 3; // times the unit interval
     let rate_limit = 10; // Up to 1000 for binance and poloniex, 100 for OKX.
 

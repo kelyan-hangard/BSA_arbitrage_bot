@@ -12,9 +12,9 @@ pub async fn get_poloniex_data(imported_symbol: &str, interval: &str, time_back:
         "1d" => 86400,
         "4h" => 14400,
         "2h" => 7200,
-        "30M" => 1800,
-        "15M" => 900,
-        "5M" => 300,
+        "30m" => 1800,
+        "15m" => 900,
+        "5m" => 300,
         // add other relevant intervals
         _ => 300,
     };
