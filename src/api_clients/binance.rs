@@ -14,8 +14,8 @@ pub async fn get_binance_data(symbol: &str, interval: &str, time_back: i64, limi
 
     // Create the URL with query parameters
     let url = format!(
-        "https://api.binance.com/api/v3/klines?symbol={}&interval={}&limit={}&startTime={}&endTime={}",
-        symbol, interval, limit, start_time, end_time
+        "https://api.binance.com/api/v3/trades?symbol={}&limit={}",
+        symbol, limit
     );
 
     // Send the GET request

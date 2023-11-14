@@ -9,7 +9,6 @@ pub async fn get_okx_data(imported_symbol: &str, interval: &str, time_back: i64,
     let bar = match interval {
         "1d" => "1D",
         "1h" => "1H",
-        "5M" => "5m",
         // add other relevant intervals
         _ => interval,
     };
@@ -17,8 +16,8 @@ pub async fn get_okx_data(imported_symbol: &str, interval: &str, time_back: i64,
     let symbol = split_symbol_okx(imported_symbol, split_index);
 
     let url = format!(
-        "https://www.okx.com/api/v5/market/history-candles?instId={}&bar={}&after={}&limit={}",
-        symbol, bar, start_time, limit
+        "https://www.okx.com/api/v5/market/trades?instId={}&limit={}",
+        symbol, limit
     );
 
     let resp = reqwest::get(&url).await?;
