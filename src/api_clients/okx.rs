@@ -1,17 +1,10 @@
 use reqwest;
 use serde_json::Value;
 use std::error::Error;
-use chrono::{Duration, Utc};
 use crate::utils::split_symbol_okx;
 
-pub async fn get_okx_data(imported_symbol: &str, interval: &str, time_back: i64, limit: usize) -> Result<Value, Box<dyn Error>> {
-    let start_time = (Utc::now() - Duration::days(time_back)).timestamp_millis();
-    let bar = match interval {
-        "1d" => "1D",
-        "1h" => "1H",
-        // add other relevant intervals
-        _ => interval,
-    };
+pub async fn get_okx_data(imported_symbol: &str, limit: usize) -> Result<Value, Box<dyn Error>> {
+
     let split_index = 3;
     let symbol = split_symbol_okx(imported_symbol, split_index);
 
