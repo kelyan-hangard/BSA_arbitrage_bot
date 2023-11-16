@@ -12,13 +12,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let okx_rate_limit = 500;
 
     let binance_data = binance::get_binance_data(symbol, binance_rate_limit).await?;
-    //println!("{:#?}", binance_data);
-    println!("-----------------------------------------");
-    println!("-----------------------------------------");
-    println!("-----------------------------------------");
+    // println!("{:#?}", binance_data);
+    // println!("-----------------------------------------");
+    // println!("-----------------------------------------");
+    // println!("-----------------------------------------");
 
     let okx_data = okx::get_okx_data(symbol, okx_rate_limit).await?;
-    //println!("{:#?}", okx_data);
+    // println!("{:#?}", okx_data);
     // println!("-----------------------------------------");
     // println!("-----------------------------------------");
     // println!("-----------------------------------------");
