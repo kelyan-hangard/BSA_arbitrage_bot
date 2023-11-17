@@ -2,3 +2,4 @@ target/debug
 historic_arbitrage.csv
 matching_trades.csv
 .DS_Store
+.vscode
