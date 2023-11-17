@@ -5,10 +5,9 @@ Authors: Joshua Cohen-Dumani and Kelyan Hangard
 # Overview
 
 The LDO Arbitrage Bot, developed in Rust, is designed to identify and potentially exploit arbitrage opportunities between Binance and OKX exchanges, specifically for the LDO/USDT trading pair. This application uses asynchronous programming to fetch real-time trading data, facilitating efficient and rapid analysis of potential arbitrage scenarios.
-Structure
+### Structure
 
 The application's codebase is structured into various modules, each with a specific role:
-Modules
 
 - main.rs: This is the entry point of the application. It initiates the various components and manages the flow of the arbitrage detection process.
 
@@ -30,14 +29,24 @@ Modules
 - Identifies real-time arbitrage opportunities and calculates potential net profits.
 - Displays detailed information about these opportunities, including execution time for API calls and logic, in the console.
 
+
+## Prerequisites
+- Rust programming language
+- Cargo package manager
+
+## Installation
+1. Clone the repository: ADD LINK HERE
+2. Navigate to the project directory: **cd cryptocurrency-arbitrage-bot**
+3. Build the project using Cargo: **cargo build**
+
 # Usage
 
 To run the LDO Arbitrage Bot, execute the following command in your terminal:
 
-cargo run
+**cargo run**
 
 Upon execution, the bot first performs historical arbitrage analysis, saving its findings in historic_arbitrage.csv. Following this, it commences live arbitrage monitoring, presenting any detected opportunities in the terminal.
-Future Enhancements
+### Future Enhancements
 
 The application, while operational, can be further improved:
 
@@ -45,7 +54,7 @@ The application, while operational, can be further improved:
 
 - Advanced Arbitrage Algorithm: Enhance the algorithm to account for factors like order book depth and slippage.
 
-- Expansion to More Exchanges and Pairs: Extend capabilities to include more exchanges and various trading pairs.
+- Expansion to More Exchanges and Pairs: Extend capabilities to include more exchanges and various trading pairs. 
 
 - Automated Trading: Implement features to automatically execute trades when arbitrage is detected, in line with predefined user parameters.
 
@@ -55,4 +64,4 @@ The application, while operational, can be further improved:
 
 ## Disclaimer
 
-This tool is for educational purposes and should be used with caution. Cryptocurrency trading involves significant risk, and the authors are not liable for any financial losses incurred while using this software.
+This tool should be used with caution. Cryptocurrency trading involves significant risk, and the authors are not liable for any financial losses incurred while using this software.
