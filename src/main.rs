@@ -1,10 +1,8 @@
 mod api_clients;
 use api_clients::binance;
 use api_clients::okx;
-//use api_clients::poloniex;
 mod utils;
 mod arbitrage;
-
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let symbol = "LDOUSDT";
@@ -12,22 +10,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let okx_rate_limit = 500;
 
     let binance_data = binance::get_binance_data(symbol, binance_rate_limit).await?;
-    // println!("{:#?}", binance_data);
-    // println!("-----------------------------------------");
-    // println!("-----------------------------------------");
-    // println!("-----------------------------------------");
-
     let okx_data = okx::get_okx_data(symbol, okx_rate_limit).await?;
-    // println!("{:#?}", okx_data);
-    // println!("-----------------------------------------");
-    // println!("-----------------------------------------");
-    // println!("-----------------------------------------");
 
-    // let poloniex_data = poloniex::get_poloniex_data(symbol, interval, time_back).await?;
-    // println!("{:#?}", poloniex_data);
+    arbitrage::historic_arbitrage(&binance_data, &okx_data)?;
+    println!("You can see historic arbitrage opportunitiy details in historic_arbitrage.csv");
 
-    let arbitrage_opportunities = arbitrage::arbitrage(&binance_data, &okx_data);
-    
+    println!("________________________________________________________________________________");
+    println!("Starting live arbitrage monitoring...\n");
+
+    arbitrage::live_arbitrage(symbol).await;    
     Ok(())
 }
+
 
